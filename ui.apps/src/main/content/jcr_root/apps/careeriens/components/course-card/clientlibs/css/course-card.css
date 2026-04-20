@@ -1,0 +1,139 @@
+/* ── Course Card ──────────────────────────────────── */
+.course-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    cursor: pointer;
+}
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+
+/* ── Image area ─────────────────────────────────── */
+.card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #e8e8e8;
+    flex-shrink: 0;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 300ms ease;
+}
+.course-card:hover .card-img { transform: scale(1.04); }
+
+/* Image placeholder (edit mode only) */
+.card-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #aaa;
+    font-size: 0.8rem;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Category badge ─────────────────────────────── */
+.card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Badge color variants */
+.card-badge--green  { background: rgba(255,255,255,0.92); color: #1e3d2a; }
+.card-badge--blue   { background: rgba(219,234,254,0.92); color: #1e40af; }
+.card-badge--orange { background: rgba(255,237,213,0.92); color: #c2410c; }
+.card-badge--purple { background: rgba(237,233,254,0.92); color: #6d28d9; }
+
+/* ── Card body ──────────────────────────────────── */
+.card-body {
+    padding: 1.25rem 1.25rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.6rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.card-desc {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Footer: price + CTA ────────────────────────── */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    margin-top: auto;
+    gap: 0.5rem;
+}
+
+.card-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e3d2a;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.card-cta {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1e3d2a;
+    text-decoration: none;
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: gap 150ms ease, color 150ms ease;
+}
+.card-cta:hover {
+    color: #2d5a3d;
+    gap: 6px;
+}
+
+.cta-arrow {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}

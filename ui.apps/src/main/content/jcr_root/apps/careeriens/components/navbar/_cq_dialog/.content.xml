@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Navbar"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <logo jcr:primaryType="nt:unstructured"
+                        jcr:title="🖼 Logo"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+
+                            <fileReference
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Logo Image (from DAM)"
+                                fieldDescription="e.g. /content/dam/careeriens/careeriens-logo.jpg — shown before the brand name"
+                                name="./fileReference"
+                                rootPath="/content/dam" />
+
+                            <logoAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Logo Image Alt Text"
+                                name="./logoAlt"
+                                value="Careeriens" />
+
+                            <brandPart1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Brand Name — Part 1 (dark green)"
+                                fieldDescription="e.g.  Career"
+                                name="./brandPart1"
+                                value="Career" />
+
+                            <brandPart2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Brand Name — Part 2 (orange)"
+                                fieldDescription="e.g.  iens"
+                                name="./brandPart2"
+                                value="iens" />
+
+                            <logoLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Logo Click Destination"
+                                fieldDescription="Page the logo links to — usually home"
+                                name="./logoLink"
+                                rootPath="/content" />
+
+                        </items>
+                    </logo>
+
+                    <!-- ══ TAB 2: NAVIGATION ══ -->
+                    <navigation jcr:primaryType="nt:unstructured"
+                        jcr:title="🔗 Navigation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <navItems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Nav Items"
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./navItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <navLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Label"
+                                            name="./navLabel"
+                                            required="{Boolean}true" />
+                                        <navLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="URL (blank if dropdown)"
+                                            name="./navLink"
+                                            rootPath="/content" />
+                                        <hasDropdown
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                            text="Has Dropdown Menu"
+                                            name="./hasDropdown"
+                                            value="{Boolean}true"
+                                            uncheckedValue="{Boolean}false" />
+                                        <dropdownItems
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            fieldLabel="Dropdown Categories"
+                                            fieldDescription="Each row = one category e.g. Full Stack / Doctoral Degrees"
+                                            composite="{Boolean}true">
+                                            <field jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                granite:class="foundation-layout-panel"
+                                                name="./dropdownItems">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <dropLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Category Name"
+                                                        fieldDescription="e.g. Full Stack | Data Science | Doctoral Degrees"
+                                                        name="./dropLabel"
+                                                        required="{Boolean}true" />
+                                                    <dropLink
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldLabel="Category URL (optional, only if no sub-items)"
+                                                        name="./dropLink"
+                                                        rootPath="/content" />
+                                                    <subItems
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        fieldLabel="Sub-links (appear on hover)"
+                                                        fieldDescription="e.g. Full Stack Web Dev | Regular PhD"
+                                                        composite="{Boolean}true">
+                                                        <field jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            granite:class="foundation-layout-panel"
+                                                            name="./subItems">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <subLabel
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldLabel="Sub-link Label"
+                                                                    name="./subLabel"
+                                                                    required="{Boolean}true" />
+                                                                <subLink
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                    fieldLabel="Sub-link URL"
+                                                                    name="./subLink"
+                                                                    rootPath="/content" />
+                                                            </items>
+                                                        </field>
+                                                    </subItems>
+                                                </items>
+                                            </field>
+                                        </dropdownItems>
+                                    </items>
+                                </field>
+                            </navItems>
+                        </items>
+                    </navigation>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,71 @@
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='careeriens.course-card'}"/>
+<sly data-sly-use.model="com.careeriens.core.models.CourseCardModel"/>
+
+<article class="course-card">
+
+    <!-- ── Image + badge ── -->
+    <div class="card-img-wrap">
+
+        <img src="${model.fileReference @ context='uri'}"
+             alt="${model.title @ context='attribute'}"
+             class="card-img"
+             loading="lazy"
+             data-sly-test="${model.imageConfigured}"/>
+
+        <!-- placeholder shown in author edit mode when no image set -->
+        <div class="card-img-placeholder"
+             data-sly-test="${!model.imageConfigured}"
+             aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.5" width="40" height="40" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <span>Set image in dialog</span>
+        </div>
+
+        <!-- Category badge — color controlled by badgeColor property -->
+        <span class="card-badge card-badge--${model.badgeColor @ context='attribute'}"
+              data-sly-test="${model.categoryLabel}">
+            ${model.categoryLabel @ context='text'}
+        </span>
+
+    </div>
+
+    <!-- ── Card body ── -->
+    <div class="card-body">
+
+        <h3 class="card-title"
+            data-sly-test="${model.title}">
+            ${model.title @ context='text'}
+        </h3>
+
+        <p class="card-desc"
+           data-sly-test="${model.description}">
+            ${model.description @ context='text'}
+        </p>
+
+        <div class="card-footer">
+            <span class="card-price"
+                  data-sly-test="${model.price}">
+                ${model.price @ context='text'}
+            </span>
+            <a href="${model.ctaLink @ context='uri'}"
+               class="card-cta"
+               data-sly-test="${model.ctaLink}">
+                ${model.ctaText @ context='text'}
+                <svg class="cta-arrow" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+
+</article>

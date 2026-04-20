@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Footer"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- ══ TAB 1: BRAND ══ -->
+                    <brand jcr:primaryType="nt:unstructured"
+                        jcr:title="🏷 Brand"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <brandPart1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Brand Name Part 1 (orange)"
+                                fieldDescription="e.g. Career"
+                                name="./brandPart1"
+                                value="Career" />
+                            <brandPart2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Brand Name Part 2 (white)"
+                                fieldDescription="e.g. iens"
+                                name="./brandPart2"
+                                value="iens" />
+                            <tagline
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Tagline"
+                                name="./tagline"
+                                value="Where Ambitions Take Flight." />
+                            <copyrightText
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Copyright Text"
+                                name="./copyrightText"
+                                value="© 2025 Careeriens, All Rights Reserved" />
+                        </items>
+                    </brand>
+
+                    <!-- ══ TAB 2: SOCIAL ══ -->
+                    <social jcr:primaryType="nt:unstructured"
+                        jcr:title="📱 Social"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <facebookUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Facebook URL"
+                                name="./facebookUrl" />
+                            <whatsappUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="WhatsApp URL"
+                                name="./whatsappUrl" />
+                            <twitterUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Twitter / X URL"
+                                name="./twitterUrl" />
+                            <linkedinUrl
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="LinkedIn URL"
+                                name="./linkedinUrl" />
+                        </items>
+                    </social>
+
+                    <!-- ══ TAB 3: LINKS ══ -->
+                    <links jcr:primaryType="nt:unstructured"
+                        jcr:title="🔗 Links"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+
+                            <degreeLinks
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Degrees Column"
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./degreeLinks">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <linkLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Label"
+                                            name="./linkLabel"
+                                            required="{Boolean}true" />
+                                        <linkUrl
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="URL"
+                                            name="./linkUrl"
+                                            rootPath="/content" />
+                                    </items>
+                                </field>
+                            </degreeLinks>
+
+                            <quickLinks
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Quick Links Column"
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./quickLinks">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <linkLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Label"
+                                            name="./linkLabel"
+                                            required="{Boolean}true" />
+                                        <linkUrl
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="URL"
+                                            name="./linkUrl"
+                                            rootPath="/content" />
+                                    </items>
+                                </field>
+                            </quickLinks>
+
+                        </items>
+                    </links>
+
+                    <!-- ══ TAB 4: CONTACT ══ -->
+                    <contact jcr:primaryType="nt:unstructured"
+                        jcr:title="📞 Contact"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <phone
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Phone Number"
+                                fieldDescription="e.g. +91 9716036192"
+                                name="./phone" />
+                            <email
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Email Address"
+                                name="./email" />
+                            <address1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Address 1"
+                                fieldDescription="Use &lt;br&gt; for line breaks e.g. Education Street&lt;br&gt;New York, NY10001"
+                                name="./address1" />
+                            <address2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Address 2 (optional)"
+                                name="./address2" />
+                        </items>
+                    </contact>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

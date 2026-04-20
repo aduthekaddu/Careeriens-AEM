@@ -1,0 +1,92 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='careeriens.hero'}"/>
+<sly data-sly-use.model="com.careeriens.core.models.HeroModel"/>
+
+<section class="hero" data-sly-test="${model.imagesConfigured}">
+
+    <!-- Slideshow layers — JS crossfades between these -->
+    <div class="hero-slides">
+        <div class="hero-slide"
+             data-sly-repeat.img="${model.imageList}"
+             style="background-image: url('${img @ context='uri'}');">
+        </div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <!-- Badge -->
+        <div class="hero-badge" data-sly-test="${model.badgeText}">
+            <svg class="hero-badge-icon" viewBox="0 0 24 24" fill="currentColor"
+                 aria-hidden="true" width="14" height="14">
+                <path d="M12 2l1.09 3.26L16 6l-2.91 1.74L12 11l-1.09-3.26L8 6l2.91-1.74L12 2z
+                         M19 8l.55 1.64L21 11l-1.45.87L19 14l-.55-1.64L17 11l1.45-.87L19 8z
+                         M5 8l.55 1.64L7 11l-1.45.87L5 14l-.55-1.64L3 11l1.45-.87L5 8z"/>
+            </svg>
+            ${model.badgeText @ context='text'}
+        </div>
+
+        <!-- Heading -->
+        <h1 class="hero-heading"
+            data-sly-test="${model.headingPart1 || model.headingPart2}">
+            <span class="hero-heading-white"
+                  data-sly-test="${model.headingPart1}">
+                ${model.headingPart1 @ context='text'}
+            </span>
+            <span class="hero-heading-orange"
+                  data-sly-test="${model.headingPart2}">
+                ${model.headingPart2 @ context='text'}
+            </span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="hero-subtext" data-sly-test="${model.subtext}">
+            ${model.subtext @ context='text'}
+        </p>
+
+        <!-- CTA buttons -->
+        <div class="hero-ctas">
+            <a href="${model.primaryCtaLink @ context='uri'}"
+               class="hero-btn hero-btn--primary">
+                ${model.primaryCtaText @ context='text'}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2.5" stroke-linecap="round"
+                     stroke-linejoin="round" width="16" height="16"
+                     aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+            <a href="${model.secondaryCtaLink @ context='uri'}"
+               class="hero-btn hero-btn--secondary">
+                ${model.secondaryCtaText @ context='text'}
+            </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats" data-sly-test="${model.statList}">
+            <div class="hero-stat" data-sly-repeat.stat="${model.statList}">
+                <div class="stat-icon" data-sly-test="${stat.iconConfigured}">
+                    <img src="${stat.iconRef @ context='uri'}"
+                         alt=""
+                         aria-hidden="true"
+                         class="stat-icon-img"/>
+                </div>
+                <span class="stat-value">${stat.value @ context='text'}</span>
+                <span class="stat-label">${stat.label @ context='text'}</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Edit mode placeholder -->
+<section class="hero hero--placeholder"
+         data-sly-test="${!model.imagesConfigured}">
+    <div class="hero-content">
+        <p style="color:#fff;opacity:0.6;font-family:sans-serif;font-size:1rem;">
+            ✦ Add background images in dialog → Images tab
+        </p>
+    </div>
+</section>

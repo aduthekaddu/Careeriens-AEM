@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Course Cards"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- ══ TAB 1: SECTION ══ -->
+                    <section jcr:primaryType="nt:unstructured"
+                        jcr:title="📌 Section"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sectionTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Section Heading"
+                                fieldDescription="e.g. Our Courses — leave blank to hide"
+                                name="./sectionTitle" />
+                            <sectionSubtitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Section Sub-heading"
+                                fieldDescription="Optional line under the heading"
+                                name="./sectionSubtitle" />
+                        </items>
+                    </section>
+
+                    <!-- ══ TAB 2: CARDS ══ -->
+                    <cardsTab jcr:primaryType="nt:unstructured"
+                        jcr:title="🃏 Cards"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <cards
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Course Cards"
+                                fieldDescription="Add one row per card. Cards render in order left-to-right."
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./cards">
+                                    <items jcr:primaryType="nt:unstructured">
+
+                                        <fileReference
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Card Image (DAM path)"
+                                            name="./fileReference"
+                                            rootPath="/content/dam" />
+
+                                        <categoryLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Badge Text"
+                                            fieldDescription="e.g. Full Stack"
+                                            name="./categoryLabel" />
+
+                                        <badgeColor
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                            fieldLabel="Badge Color"
+                                            name="./badgeColor">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <green jcr:primaryType="nt:unstructured"
+                                                    text="Green" value="green"
+                                                    selected="{Boolean}true" />
+                                                <blue jcr:primaryType="nt:unstructured" text="Blue"
+                                                    value="blue" />
+                                                <orange jcr:primaryType="nt:unstructured"
+                                                    text="Orange" value="orange" />
+                                                <purple jcr:primaryType="nt:unstructured"
+                                                    text="Purple" value="purple" />
+                                            </items>
+                                        </badgeColor>
+
+                                        <title
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Course Title"
+                                            name="./title"
+                                            required="{Boolean}true" />
+
+                                        <description
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                            fieldLabel="Short Description"
+                                            name="./description" />
+
+                                        <price
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Price"
+                                            fieldDescription="e.g. $999"
+                                            name="./price" />
+
+                                        <ctaText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="CTA Text"
+                                            name="./ctaText"
+                                            value="View Program" />
+
+                                        <ctaLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="CTA Link"
+                                            name="./ctaLink"
+                                            rootPath="/content" />
+
+                                    </items>
+                                </field>
+                            </cards>
+                        </items>
+                    </cardsTab>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

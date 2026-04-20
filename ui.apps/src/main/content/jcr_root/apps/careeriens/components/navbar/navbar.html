@@ -1,0 +1,103 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='careeriens.navbar'}"/>
+<sly data-sly-use.model="com.careeriens.core.models.NavbarModel"/>
+
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+
+        <!-- ── LOGO ─────────────────────────────────────────────────
+             Shows: [DAM image] + brand text side by side
+             If no image uploaded → just the brand text
+             brandNamePart1 = "Career", brandNamePart2 = "iens"
+             stored as navbarBrandPart1 / navbarBrandPart2 in dialog
+        ──────────────────────────────────────────────────────────── -->
+        <a href="${model.logoLink @ context='uri'}" class="logo">
+
+            <img src="${model.fileReference @ context='uri'}"
+                 alt="${model.logoAlt @ context='attribute'}"
+                 class="logo-img"
+                 data-sly-test="${model.logoConfigured}"/>
+
+            <span class="brand-name">
+                <span class="brand-part1">${model.brandPart1 @ context='text'}</span><span class="brand-part2">${model.brandPart2 @ context='text'}</span>
+            </span>
+
+        </a>
+
+        <!-- ── DESKTOP NAV ─────────────────────────────────────────── -->
+        <ul class="nav-links">
+            <li class="nav-item" data-sly-repeat.item="${model.navigationItems}">
+
+                <a href="${item.link @ context='uri'}"
+                   class="nav-link"
+                   data-sly-test="${!item.hasDropdown}">
+                    ${item.label @ context='text'}
+                </a>
+
+                <button class="nav-link has-dropdown"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        data-sly-test="${item.hasDropdown}">
+                    ${item.label @ context='text'}
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </button>
+
+                <!--
+                    dropdown-panel uses right:0 so it never bleeds off-screen.
+                    It aligns its RIGHT edge with the RIGHT edge of the trigger.
+                -->
+                <div class="dropdown-panel" role="menu"
+                     data-sly-test="${item.hasDropdown}">
+                    <div class="drop-inner">
+
+                        <ul class="cat-col">
+                            <li class="cat-row"
+                                data-sly-repeat.cat="${item.dropdownCategories}">
+
+                                <a href="${cat.link @ context='uri'}"
+                                   class="cat-link" role="menuitem">
+                                    ${cat.label @ context='text'}
+                                    <svg class="arrow-right"
+                                         viewBox="0 0 24 24" fill="none"
+                                         stroke="currentColor" stroke-width="2"
+                                         stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         aria-hidden="true"
+                                         data-sly-test="${cat.hasSubItems}">
+                                        <polyline points="9 18 15 12 9 6"/>
+                                    </svg>
+                                </a>
+
+                                <div class="sub-col"
+                                     data-sly-test="${cat.hasSubItems}">
+                                    <p class="sub-col-title">
+                                        ${cat.label @ context='text'}
+                                    </p>
+                                    <ul class="sub-list">
+                                        <li data-sly-repeat.sub="${cat.subItems}">
+                                            <a href="${sub.link @ context='uri'}"
+                                               class="sub-link"
+                                               role="menuitem">
+                                                ${sub.label @ context='text'}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+    </div>
+</nav>

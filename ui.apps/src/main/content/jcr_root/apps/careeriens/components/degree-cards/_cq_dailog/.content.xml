@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Degree Cards"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <headerTab jcr:primaryType="nt:unstructured"
+                        jcr:title="📌 Header"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <sectionTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Section Title"
+                                name="./sectionTitle" />
+                            <sectionSubtitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Section Subtitle"
+                                name="./sectionSubtitle" />
+                        </items>
+                    </headerTab>
+
+                    <cardsTab jcr:primaryType="nt:unstructured"
+                        jcr:title="🃏 Cards"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <cards
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Degree Cards"
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./cards">
+                                    <items jcr:primaryType="nt:unstructured">
+
+                                        <imageRef
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Card Image"
+                                            name="./imageRef"
+                                            rootPath="/content/dam" />
+
+                                        <badgeText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Badge Text"
+                                            fieldDescription="e.g. PROFESSIONAL"
+                                            name="./badgeText" />
+
+                                        <badgeColor
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                            fieldLabel="Accent Color"
+                                            fieldDescription="Controls badge, checkmarks and Apply button color"
+                                            name="./badgeColor">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <blue jcr:primaryType="nt:unstructured" text="Blue"
+                                                    value="blue" selected="{Boolean}true" />
+                                                <green jcr:primaryType="nt:unstructured"
+                                                    text="Green" value="green" />
+                                                <orange jcr:primaryType="nt:unstructured"
+                                                    text="Orange" value="orange" />
+                                                <purple jcr:primaryType="nt:unstructured"
+                                                    text="Purple" value="purple" />
+                                            </items>
+                                        </badgeColor>
+
+                                        <iconRef
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Card Icon (DAM)"
+                                            name="./iconRef"
+                                            rootPath="/content/dam" />
+
+                                        <duration
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Duration"
+                                            fieldDescription="e.g. 36 Months"
+                                            name="./duration" />
+
+                                        <title
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Title"
+                                            name="./title"
+                                            required="{Boolean}true" />
+
+                                        <description
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                            fieldLabel="Description"
+                                            name="./description" />
+
+                                        <features
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            fieldLabel="Feature List"
+                                            composite="{Boolean}true">
+                                            <field jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                granite:class="foundation-layout-panel"
+                                                name="./features">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <featureText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldLabel="Feature"
+                                                        fieldDescription="e.g. Executive Leadership"
+                                                        name="./featureText"
+                                                        required="{Boolean}true" />
+                                                </items>
+                                            </field>
+                                        </features>
+
+                                        <knowMoreLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Know More Link"
+                                            name="./knowMoreLink"
+                                            rootPath="/content" />
+
+                                        <applyLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Apply Link"
+                                            name="./applyLink"
+                                            rootPath="/content" />
+
+                                    </items>
+                                </field>
+                            </cards>
+                        </items>
+                    </cardsTab>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

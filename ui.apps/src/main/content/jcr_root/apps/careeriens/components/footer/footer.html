@@ -1,0 +1,124 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='careeriens.footer'}"/>
+<sly data-sly-use.model="com.careeriens.core.models.FooterModel"/>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <!-- ── COL 1: Brand + tagline + social ── -->
+        <div class="footer-col footer-brand">
+            <p class="footer-brand-name">
+                <span class="fbrand-part1">${model.brandPart1 @ context='text'}</span><span class="fbrand-part2">${model.brandPart2 @ context='text'}</span>
+            </p>
+            <p class="footer-tagline">${model.tagline @ context='text'}</p>
+            <div class="footer-socials">
+                <a href="${model.facebookUrl @ context='uri'}" class="social-btn social-fb"
+                   aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="${model.whatsappUrl @ context='uri'}" class="social-btn social-wa"
+                   aria-label="WhatsApp" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                    </svg>
+                </a>
+                <a href="${model.twitterUrl @ context='uri'}" class="social-btn social-tw"
+                   aria-label="Twitter / X" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                    </svg>
+                </a>
+                <a href="${model.linkedinUrl @ context='uri'}" class="social-btn social-li"
+                   aria-label="LinkedIn" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- ── COL 2: Degrees ── -->
+        <div class="footer-col">
+            <h3 class="footer-col-heading">Degrees</h3>
+            <ul class="footer-links">
+                <li data-sly-repeat.link="${model.degreeLinks}">
+                    <a href="${link.url @ context='uri'}" class="footer-link">
+                        ${link.label @ context='text'}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ── COL 3: Quick Links ── -->
+        <div class="footer-col">
+            <h3 class="footer-col-heading">Quick Links</h3>
+            <ul class="footer-links">
+                <li data-sly-repeat.link="${model.quickLinks}">
+                    <a href="${link.url @ context='uri'}" class="footer-link">
+                        ${link.label @ context='text'}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ── COL 4: Contact ── -->
+        <div class="footer-col footer-contact">
+            <h3 class="footer-col-heading">Contact Us</h3>
+
+            <a href="tel:${model.phone @ context='text'}"
+               class="contact-row"
+               data-sly-test="${model.phone}">
+                <span class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
+                    </svg>
+                </span>
+                <span>${model.phone @ context='text'}</span>
+            </a>
+
+            <a href="mailto:${model.email @ context='text'}"
+               class="contact-row"
+               data-sly-test="${model.email}">
+                <span class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </span>
+                <span>${model.email @ context='text'}</span>
+            </a>
+
+            <div class="contact-row" data-sly-test="${model.address1}">
+                <span class="contact-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                </span>
+                <span>${model.address1 @ context='html'}</span>
+            </div>
+
+            <div class="contact-row contact-row--indent"
+                 data-sly-test="${model.address2}">
+                <span>${model.address2 @ context='html'}</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── Bottom bar ── -->
+    <div class="footer-bottom">
+        <p>${model.copyrightText @ context='text'}</p>
+    </div>
+
+</footer>

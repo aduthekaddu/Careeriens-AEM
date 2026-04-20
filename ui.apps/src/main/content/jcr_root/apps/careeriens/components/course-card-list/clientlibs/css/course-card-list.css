@@ -1,0 +1,182 @@
+/* ── Section wrapper ──────────────────────────── */
+.course-section {
+    padding: 4rem 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.course-section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.course-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.03em;
+    margin: 0 0 0.5rem;
+}
+
+.course-section-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin: 0;
+}
+
+/* ── Grid ──────────────────────────────────────── */
+/*
+    Fixed 4-column grid. Cards have a fixed width of 300px.
+    Grid centers itself via justify-content.
+    No AEM layout editor involvement needed.
+*/
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* ── Card — fixed 300 × 460px ──────────────────── */
+.course-card {
+    width: 300px;
+    height: 460px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    flex-shrink: 0;
+}
+.course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.13);
+}
+
+/* ── Image — fixed 300 × 190px ─────────────────── */
+.card-img-wrap {
+    position: relative;
+    width: 300px;
+    height: 190px;
+    overflow: hidden;
+    background: #e0e0e0;
+    flex-shrink: 0;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 300ms ease;
+}
+.course-card:hover .card-img { transform: scale(1.05); }
+
+.card-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: #aaa;
+    font-size: 0.75rem;
+}
+
+/* ── Badge ──────────────────────────────────────── */
+.card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+.card-badge--green  { background: rgba(255,255,255,0.92); color: #1e3d2a; }
+.card-badge--blue   { background: rgba(219,234,254,0.92); color: #1e40af; }
+.card-badge--orange { background: rgba(255,237,213,0.92); color: #c2410c; }
+.card-badge--purple { background: rgba(237,233,254,0.92); color: #6d28d9; }
+
+/* ── Body — remaining 270px ─────────────────────── */
+.card-body {
+    padding: 1.1rem 1.1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.5rem;
+    /* clamp to 2 lines so layout never breaks */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-desc {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+    /* clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.8rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.card-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e3d2a;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.card-cta {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e3d2a;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: gap 150ms ease;
+}
+.card-cta:hover { gap: 6px; }
+
+.cta-arrow {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}

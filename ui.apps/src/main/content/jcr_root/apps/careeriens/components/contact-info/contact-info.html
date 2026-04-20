@@ -1,0 +1,50 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='careeriens.contactinfo'}"
+/>
+<sly data-sly-use.model="com.careeriens.core.models.ContactInfoModel" />
+
+<section class="ci-section">
+  <div class="ci-header">
+    <h2 class="ci-title">${model.heading @ context='text'}</h2>
+    <nav class="ci-breadcrumb" aria-label="Breadcrumb">
+      <a
+        class="ci-breadcrumb-link"
+        href="${model.breadcrumbRootLink @ context='uri'}"
+      >
+        ${model.breadcrumbRootLabel @ context='text'}
+      </a>
+      <span class="ci-breadcrumb-sep" aria-hidden="true">&gt;</span>
+      <span class="ci-breadcrumb-current"
+        >${model.breadcrumbCurrentLabel @ context='text'}</span
+      >
+    </nav>
+  </div>
+
+  <div class="ci-wrapper" data-sly-test="${model.hasCards}">
+    <div class="ci-card" data-sly-repeat.card="${model.cardList}">
+      <div class="ci-icon-wrap" data-sly-test="${card.iconConfigured}">
+        <img
+          src="${card.iconRef @ context='uri'}"
+          alt=""
+          aria-hidden="true"
+          class="ci-icon-img"
+        />
+      </div>
+      <strong class="ci-label">${card.cardLabel @ context='text'}</strong>
+      <span class="ci-value">${card.cardValue @ context='text'}</span>
+    </div>
+  </div>
+
+  <div
+    class="ci-wrapper ci-wrapper--placeholder"
+    data-sly-test="${!model.hasCards && wcmmode.edit}"
+  >
+    <div class="ci-card ci-card--placeholder">
+      <strong class="ci-label">Configure Contact Info Cards</strong>
+      <span class="ci-value"
+        >Open dialog and add items in Info Cards multifield.</span
+      >
+    </div>
+  </div>
+</section>

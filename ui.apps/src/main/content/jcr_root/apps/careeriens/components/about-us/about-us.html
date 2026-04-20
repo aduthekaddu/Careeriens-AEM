@@ -1,0 +1,95 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='careeriens.aboutus'}"
+/>
+<sly data-sly-use.model="com.careeriens.core.models.AboutUsModel" />
+
+<section class="au-section">
+  <!-- ── ROW 1: About ─────────────────────────────── -->
+  <div class="au-about">
+    <div class="au-about-text">
+      <span class="au-eyebrow" data-sly-test="${model.eyebrow}">
+        ${model.eyebrow @ context='text'}
+      </span>
+      <h2 class="au-title" data-sly-test="${model.title}">
+        ${model.title @ context='text'}
+      </h2>
+      <p class="au-body" data-sly-test="${model.bodyText1}">
+        ${model.bodyText1 @ context='text'}
+      </p>
+      <p class="au-body" data-sly-test="${model.bodyText2}">
+        ${model.bodyText2 @ context='text'}
+      </p>
+    </div>
+
+    <div class="au-about-media">
+      <img
+        class="au-img au-img--back"
+        src="${model.imageRef2 @ context='uri'}"
+        alt=""
+        loading="lazy"
+        data-sly-test="${model.imageRef2}"
+      />
+      <img
+        class="au-img au-img--front"
+        src="${model.imageRef1 @ context='uri'}"
+        alt="${model.title @ context='attribute'}"
+        loading="lazy"
+        data-sly-test="${model.imageRef1}"
+      />
+      <div class="au-badge" data-sly-test="${model.badgeNumber}">
+        <span class="au-badge-number"
+          >${model.badgeNumber @ context='text'}</span
+        >
+        <span class="au-badge-label">${model.badgeLabel @ context='text'}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ROW 2: Mission & Values ──────────────────── -->
+  <div class="au-mission">
+    <div class="au-mission-media">
+      <img
+        class="au-mimg au-mimg--main"
+        src="${model.missionImageRef1 @ context='uri'}"
+        alt=""
+        loading="lazy"
+        data-sly-test="${model.missionImageRef1}"
+      />
+      <img
+        class="au-mimg au-mimg--rounded"
+        src="${model.missionImageRef2 @ context='uri'}"
+        alt=""
+        loading="lazy"
+        data-sly-test="${model.missionImageRef2}"
+      />
+    </div>
+
+    <div class="au-mission-content">
+      <h2 class="au-mission-title" data-sly-test="${model.missionSectionTitle}">
+        ${model.missionSectionTitle @ context='text'}
+      </h2>
+
+      <ul class="au-values" data-sly-test="${model.hasValues}">
+        <li class="au-value-item" data-sly-repeat.item="${model.valueList}">
+          <div class="au-value-icon" data-sly-test="${item.iconConfigured}">
+            <img
+              src="${item.iconRef @ context='uri'}"
+              alt=""
+              aria-hidden="true"
+              class="au-value-icon-img"
+            />
+          </div>
+          <div class="au-value-body">
+            <strong class="au-value-title" data-sly-test="${item.itemTitle}">
+              ${item.itemTitle @ context='text'}
+            </strong>
+            <p class="au-value-desc" data-sly-test="${item.description}">
+              ${item.description @ context='text'}
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,212 @@
+.au-section {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── ROW 1 ───────────────────────────────────────── */
+.au-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    background: #f0f2f4;
+    padding: 5rem 6rem;
+}
+
+.au-eyebrow {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e8820c;
+    margin-bottom: 0.75rem;
+}
+
+.au-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+}
+
+.au-body {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.75;
+    margin: 0 0 1rem;
+    max-width: 540px;
+}
+
+.au-about-media {
+    position: relative;
+    height: 380px;
+}
+
+.au-img {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.au-img--back {
+    width: 68%;
+    height: 86%;
+    top: 0;
+    right: 0;
+    border-radius: 6px;
+}
+
+.au-img--front {
+    width: 55%;
+    height: 72%;
+    bottom: 0;
+    left: 0;
+    border: 4px solid #ffffff;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.au-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #38bdf8;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    min-width: 100px;
+    z-index: 2;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.au-badge-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.au-badge-label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 0.3rem;
+    opacity: 0.92;
+}
+
+/* ── ROW 2 ───────────────────────────────────────── */
+.au-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    background: #e4e7eb;
+    padding: 5rem 6rem;
+}
+
+.au-mission-media {
+    position: relative;
+    height: 420px;
+}
+
+.au-mimg {
+    position: absolute;
+    object-fit: cover;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+
+.au-mimg--main {
+    width: 60%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    border-radius: 6px;
+}
+
+.au-mimg--rounded {
+    width: 52%;
+    height: 60%;
+    bottom: 0;
+    right: 0;
+    border-radius: 18px;
+    z-index: 1;
+}
+
+.au-mission-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.03em;
+    margin: 0 0 2rem;
+}
+
+.au-values {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.au-value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.au-value-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #e8820c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 8px;
+}
+
+.au-value-icon-img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.au-value-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.3rem;
+}
+
+.au-value-desc {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .au-about,
+    .au-mission {
+        grid-template-columns: 1fr;
+        padding: 3.5rem 2rem;
+        gap: 2.5rem;
+    }
+
+    .au-about-media,
+    .au-mission-media {
+        height: 300px;
+    }
+}

@@ -2,6 +2,6 @@
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0"
     xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Component"
-    jcr:title="Degree Cards"
-    jcr:description="3-column degree program cards with features and CTA"
+    jcr:title="Contact Info Cards"
+    jcr:description="3 contact info cards — Mail, Call, Office"
     componentGroup="Careeriens - Content" />

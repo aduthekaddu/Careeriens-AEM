@@ -1,0 +1,112 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='careeriens.contactform'}"
+/>
+<sly data-sly-use.model="com.careeriens.core.models.ContactFormModel" />
+
+<div class="cf-wrapper">
+  <div class="cf-inner">
+    <div class="cf-header">
+      <h2 class="cf-title">${model.formTitle @ context='text'}</h2>
+      <p class="cf-subtitle" data-sly-test="${model.formSubtitle}">
+        ${model.formSubtitle @ context='text'}
+      </p>
+    </div>
+
+    <form
+      class="cf-form"
+      action="${model.formAction @ context='uri'}"
+      method="POST"
+      data-success="${model.successMessage @ context='attribute'}"
+    >
+      <div class="cf-row">
+        <div class="cf-field">
+          <label class="cf-label" for="cf-name">
+            ${model.labelName @ context='text'}
+          </label>
+          <input
+            class="cf-input"
+            type="text"
+            id="cf-name"
+            name="name"
+            placeholder="${model.phName @ context='attribute'}"
+            required
+          />
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cf-email">
+            ${model.labelEmail @ context='text'}
+          </label>
+          <input
+            class="cf-input"
+            type="email"
+            id="cf-email"
+            name="email"
+            placeholder="${model.phEmail @ context='attribute'}"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <div class="cf-field">
+          <label class="cf-label" for="cf-phone">
+            ${model.labelPhone @ context='text'}
+          </label>
+          <input
+            class="cf-input"
+            type="tel"
+            id="cf-phone"
+            name="phone"
+            placeholder="${model.phPhone @ context='attribute'}"
+            required
+          />
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cf-subject">
+            ${model.labelSubject @ context='text'}
+          </label>
+          <input
+            class="cf-input"
+            type="text"
+            id="cf-subject"
+            name="subject"
+            placeholder="${model.phSubject @ context='attribute'}"
+          />
+        </div>
+      </div>
+
+      <div class="cf-field cf-field--full">
+        <label class="cf-label" for="cf-message">
+          ${model.labelMessage @ context='text'}
+        </label>
+        <textarea
+          class="cf-textarea"
+          id="cf-message"
+          name="message"
+          placeholder="${model.phMessage @ context='attribute'}"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <div class="cf-submit-wrap">
+        <button class="cf-submit" type="submit">
+          ${model.submitButtonText @ context='text'}
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="22" y1="2" x2="11" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

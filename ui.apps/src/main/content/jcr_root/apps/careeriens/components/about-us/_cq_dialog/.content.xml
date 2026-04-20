@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="About Us"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+
+                    <!-- TAB 1: About -->
+                    <aboutTab jcr:primaryType="nt:unstructured"
+                        jcr:title="📖 About"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <eyebrow
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Eyebrow Text"
+                                fieldDescription="e.g. WELCOME TO CAREERIENS"
+                                name="./eyebrow" />
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Title"
+                                name="./title" />
+                            <bodyText1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Body Paragraph 1"
+                                name="./bodyText1" />
+                            <bodyText2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldLabel="Body Paragraph 2"
+                                name="./bodyText2" />
+                            <imageRef1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Image (front)"
+                                name="./imageRef1"
+                                rootPath="/content/dam" />
+                            <imageRef2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Image (back)"
+                                name="./imageRef2"
+                                rootPath="/content/dam" />
+                            <badgeNumber
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Badge Number"
+                                fieldDescription="e.g. 10"
+                                name="./badgeNumber" />
+                            <badgeLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Badge Label"
+                                fieldDescription="e.g. Years Of Experience"
+                                name="./badgeLabel" />
+                        </items>
+                    </aboutTab>
+
+                    <!-- TAB 2: Mission & Values -->
+                    <missionTab jcr:primaryType="nt:unstructured"
+                        jcr:title="🎯 Mission"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <missionSectionTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldLabel="Section Title"
+                                fieldDescription="e.g. Mission and Values"
+                                name="./missionSectionTitle" />
+                            <missionImageRef1
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Image (main rect)"
+                                name="./missionImageRef1"
+                                rootPath="/content/dam" />
+                            <missionImageRef2
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                fieldLabel="Image (rounded)"
+                                name="./missionImageRef2"
+                                rootPath="/content/dam" />
+                            <valueItems
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                fieldLabel="Value Items"
+                                fieldDescription="e.g. Our Mission, Our Vision"
+                                composite="{Boolean}true">
+                                <field jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    granite:class="foundation-layout-panel"
+                                    name="./valueItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <itemIconRef
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                            fieldLabel="Icon (SVG/PNG from DAM)"
+                                            name="./itemIconRef"
+                                            rootPath="/content/dam" />
+                                        <itemTitle
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Title"
+                                            fieldDescription="e.g. Our Mission"
+                                            name="./itemTitle"
+                                            required="{Boolean}true" />
+                                        <itemDescription
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                            fieldLabel="Description"
+                                            name="./itemDescription" />
+                                    </items>
+                                </field>
+                            </valueItems>
+                        </items>
+                    </missionTab>
+
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

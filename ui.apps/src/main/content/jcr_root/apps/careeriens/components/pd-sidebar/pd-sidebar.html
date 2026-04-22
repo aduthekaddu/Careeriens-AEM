@@ -1,0 +1,83 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdSidebarModel" />
+
+<div class="pd-sidebar-card">
+  <span class="pd-sidebar-duration-label">
+    ${model.durationLabel @ context='text'}
+  </span>
+
+  <div class="pd-sidebar-duration" data-sly-test="${model.hasDuration}">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+    <strong>${model.duration @ context='text'}</strong>
+  </div>
+
+  <div class="pd-sidebar-infos">
+    <div class="pd-sidebar-info" data-sly-test="${model.hasInfo1}">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path
+          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10
+                         15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+        />
+      </svg>
+      ${model.info1 @ context='text'}
+    </div>
+    <div class="pd-sidebar-info" data-sly-test="${model.hasInfo2}">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+      ${model.info2 @ context='text'}
+    </div>
+  </div>
+
+  <a
+    class="pd-sidebar-cta"
+    href="${model.ctaLink @ context='uri'}"
+    data-sly-test="${model.hasCta}"
+  >
+    ${model.ctaText @ context='text'}
+  </a>
+</div>
+
+<div class="pd-admission-card" data-sly-test="${model.hasAdmission}">
+  <strong class="pd-admission-title">
+    ${model.admissionTitle @ context='text'}
+  </strong>
+  <p class="pd-admission-desc" data-sly-test="${model.admissionDesc}">
+    ${model.admissionDesc @ context='text'}
+  </p>
+  <a
+    class="pd-admission-link"
+    href="${model.admissionLinkHref @ context='uri'}"
+    data-sly-test="${model.admissionLinkText}"
+  >
+    ${model.admissionLinkText @ context='text'}
+  </a>
+</div>

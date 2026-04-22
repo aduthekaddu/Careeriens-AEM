@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Sidebar"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/tabs"
+        maximized="{Boolean}true">
+        <items jcr:primaryType="nt:unstructured">
+
+            <!-- Tab 1: Duration Card -->
+            <durationTab
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Duration Card"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <durationLabel
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Label above duration"
+                        fieldDescription="e.g. Total Duration"
+                        name="./durationLabel"
+                        value="Total Duration"/>
+                    <duration
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Duration Value"
+                        fieldDescription="e.g. 36 Months"
+                        name="./duration"/>
+                    <info1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Info Row 1"
+                        fieldDescription="e.g. 100% Online Delivery"
+                        name="./info1"/>
+                    <info2
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Info Row 2"
+                        fieldDescription="e.g. Next Cohort: Rolling Admission"
+                        name="./info2"/>
+                    <ctaText
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="CTA Button Text"
+                        name="./ctaText"
+                        value="Start Application"/>
+                    <ctaLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="CTA Button Link"
+                        name="./ctaLink"
+                        rootPath="/content"/>
+                </items>
+            </durationTab>
+
+            <!-- Tab 2: Admission Support -->
+            <admissionTab
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Admission Support"
+                sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <admissionTitle
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Title"
+                        fieldDescription="e.g. Admission Support"
+                        name="./admissionTitle"
+                        value="Admission Support"/>
+                    <admissionDesc
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                        fieldLabel="Description"
+                        name="./admissionDesc"/>
+                    <admissionLinkText
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="Link Text"
+                        name="./admissionLinkText"
+                        value="Talk to Counselor →"/>
+                    <admissionLinkHref
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                        fieldLabel="Link URL"
+                        name="./admissionLinkHref"
+                        rootPath="/content"/>
+                </items>
+            </admissionTab>
+
+        </items>
+    </content>
+</jcr:root>

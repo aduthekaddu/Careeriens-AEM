@@ -1,0 +1,123 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='careeriens.programhero'}"
+/>
+<sly data-sly-use.model="com.careeriens.core.models.ProgramHeroModel" />
+
+<section class="ph-section" style="${model.bgStyle @ context='styleString'}">
+  <div class="ph-inner">
+    <div class="ph-content">
+      <a
+        class="ph-back"
+        href="${model.backLinkHref @ context='uri'}"
+        data-sly-test="${model.backLinkVisible}"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        ${model.backLinkText @ context='text'}
+      </a>
+
+      <span class="ph-badge" data-sly-test="${model.categoryBadge}">
+        ${model.categoryBadge @ context='text'}
+      </span>
+
+      <h1 class="ph-title" data-sly-test="${model.title}">
+        ${model.title @ context='text'}
+      </h1>
+
+      <ul class="ph-features" data-sly-test="${model.hasFeatures}">
+        <li class="ph-feature" data-sly-repeat.feat="${model.featureList}">
+          <svg
+            class="ph-check"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          ${feat @ context='text'}
+        </li>
+      </ul>
+
+      <div class="ph-ctas">
+        <a
+          class="ph-cta ph-cta--secondary"
+          href="${model.secondaryCtaLink @ context='uri'}"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          ${model.secondaryCtaText @ context='text'}
+        </a>
+        <a
+          class="ph-cta ph-cta--primary"
+          href="${model.primaryCtaLink @ context='uri'}"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+          </svg>
+          ${model.primaryCtaText @ context='text'}
+        </a>
+      </div>
+    </div>
+
+    <div class="ph-media" data-sly-test="${model.imageConfigured}">
+      <div class="ph-img-circle">
+        <img
+          src="${model.heroImageRef @ context='uri'}"
+          alt="${model.title @ context='attribute'}"
+          class="ph-img"
+          loading="eager"
+        />
+      </div>
+      <div class="ph-accredited" data-sly-test="${model.accredited}">
+        <img
+          src="${model.accreditedIconRef @ context='uri'}"
+          alt=""
+          aria-hidden="true"
+          class="ph-accredited-icon"
+          data-sly-test="${model.iconConfigured}"
+        />
+        <span>${model.accreditedLabel @ context='text'}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ph-diagonal" aria-hidden="true"></div>
+</section>

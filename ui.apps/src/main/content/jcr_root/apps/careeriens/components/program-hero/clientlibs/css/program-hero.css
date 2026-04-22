@@ -1,0 +1,222 @@
+.ph-section {
+    position: relative;
+    background-color: #1e3d2a;
+    overflow: hidden;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ph-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 5rem 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Back link ───────────────────────────────────── */
+.ph-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    transition: color 150ms ease;
+    grid-column: 1 / -1;
+}
+
+.ph-back svg {
+    width: 14px;
+    height: 14px;
+}
+
+.ph-back:hover { color: #ffffff; }
+
+/* ── Badge ───────────────────────────────────────── */
+.ph-badge {
+    display: inline-block;
+    background: #e8820c;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* ── Title ───────────────────────────────────────── */
+.ph-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    margin: 0 0 1.75rem;
+}
+
+/* ── Features 2-column ───────────────────────────── */
+.ph-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 2rem;
+}
+
+.ph-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.ph-check {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: #e8820c;
+}
+
+/* ── CTAs ────────────────────────────────────────── */
+.ph-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ph-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.75rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.ph-cta svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.ph-cta--secondary {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.8);
+}
+
+.ph-cta--secondary:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.ph-cta--primary {
+    background: #e8820c;
+    color: #ffffff;
+    border: 2px solid #e8820c;
+}
+
+.ph-cta--primary:hover {
+    background: #d4740a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232,130,12,0.4);
+}
+
+/* ── Media ───────────────────────────────────────── */
+.ph-media {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.ph-img-circle {
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 6px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+}
+
+.ph-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── Accredited badge ────────────────────────────── */
+.ph-accredited {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 90px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.ph-accredited svg {
+    width: 28px;
+    height: 28px;
+    color: #e8820c;
+}
+
+.ph-accredited span {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* ── Diagonal overlay ────────────────────────────── */
+.ph-diagonal {
+    position: absolute;
+    top: 0;
+    right: -5%;
+    width: 35%;
+    height: 100%;
+    background: rgba(255,255,255,0.04);
+    transform: skewX(-8deg);
+    pointer-events: none;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+    .ph-inner {
+        grid-template-columns: 1fr;
+        padding: 2.5rem 2rem 3rem;
+        text-align: center;
+    }
+
+    .ph-features { grid-template-columns: 1fr; }
+    .ph-ctas     { justify-content: center; }
+    .ph-media    { justify-content: center; }
+
+    .ph-img-circle {
+        width: 280px;
+        height: 280px;
+    }
+}

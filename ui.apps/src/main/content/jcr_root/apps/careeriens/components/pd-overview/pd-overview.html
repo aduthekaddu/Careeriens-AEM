@@ -1,0 +1,31 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdOverviewModel" />
+
+<div class="pd-panel" data-tab-label="${model.tabLabel @ context='attribute'}">
+  <h2 class="pd-panel-title" data-sly-test="${model.title}">
+    ${model.title @ context='text'}
+  </h2>
+
+  <div class="pd-overview-text">
+    <p data-sly-test="${model.para1}">${model.para1 @ context='text'}</p>
+    <p data-sly-test="${model.para2}">${model.para2 @ context='text'}</p>
+    <p data-sly-test="${model.para3}">${model.para3 @ context='text'}</p>
+    <button
+      class="pd-showmore-btn"
+      type="button"
+      data-sly-test="${model.hasMore}"
+    >
+      Show More
+    </button>
+  </div>
+
+  <div class="pd-highlights" data-sly-test="${model.hasHighlights}">
+    <h3 class="pd-highlights-title">
+      ${model.highlightsTitle @ context='text'}
+    </h3>
+    <ul class="pd-highlights-list">
+      <li data-sly-repeat.hl="${model.highlightList}">
+        ${hl @ context='text'}
+      </li>
+    </ul>
+  </div>
+</div>

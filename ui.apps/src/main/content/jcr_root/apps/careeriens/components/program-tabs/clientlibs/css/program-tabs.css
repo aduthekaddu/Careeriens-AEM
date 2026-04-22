@@ -1,0 +1,510 @@
+.pt-wrapper {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #f5f6f8;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── Tab Nav ─────────────────────────────────── */
+.pt-tabnav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #fff;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.pt-tabnav-list {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0 4rem;
+    max-width: 1400px;
+    gap: 0;
+}
+
+.pt-tabnav-btn {
+    background: none;
+    border: none;
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    font-family: inherit;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: color 150ms, border-color 150ms;
+    white-space: nowrap;
+}
+
+.pt-tabnav-btn:hover     { color: #111; }
+.pt-tabnav-btn.is-active { color: #111; font-weight: 700;
+                            border-bottom-color: #e8820c; }
+
+/* ── Layout ──────────────────────────────────── */
+.pt-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.5rem 4rem 4rem;
+    align-items: start;
+}
+
+/* ── Slots ───────────────────────────────────── */
+.pt-slot        { display: none; }
+.pt-slot.is-active { display: block; }
+
+/* ── Sidebar ─────────────────────────────────── */
+.pt-sidebar {
+    position: sticky;
+    top: 70px;
+}
+
+/* ── Shared panel styles ─────────────────────── */
+.pd-panel {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2rem 2.5rem;
+}
+
+.pd-panel-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.5rem;
+}
+
+/* ── Sidebar card ────────────────────────────── */
+.pd-sidebar-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.pd-sidebar-duration-label {
+    font-size: 0.78rem;
+    color: #888;
+    font-weight: 500;
+}
+
+.pd-sidebar-duration {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pd-sidebar-duration svg {
+    width: 20px;
+    height: 20px;
+    color: #e8820c;
+    flex-shrink: 0;
+}
+
+.pd-sidebar-duration strong {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #111;
+    letter-spacing: -0.03em;
+}
+
+.pd-sidebar-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pd-sidebar-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: #333;
+}
+
+.pd-sidebar-info svg {
+    width: 16px;
+    height: 16px;
+    color: #888;
+    flex-shrink: 0;
+}
+
+.pd-sidebar-cta {
+    display: block;
+    background: #1e3a5f;
+    color: #fff;
+    text-align: center;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 150ms;
+    margin-top: 0.25rem;
+}
+
+.pd-sidebar-cta:hover { background: #152d4a; }
+
+.pd-admission-card {
+    background: #eef2ff;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pd-admission-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e3a5f;
+}
+
+.pd-admission-desc {
+    font-size: 0.855rem;
+    color: #444;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.pd-admission-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e3a5f;
+    text-decoration: none;
+}
+
+.pd-admission-link:hover { text-decoration: underline; }
+
+/* ── Why Choose cards ────────────────────────── */
+.pd-why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pd-why-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.pd-why-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pd-why-card--blue   .pd-why-icon-wrap { background: #1e3a5f; }
+.pd-why-card--orange .pd-why-icon-wrap { background: #e8820c; }
+.pd-why-card--green  .pd-why-icon-wrap { background: #1e3d2a; }
+.pd-why-card--purple .pd-why-icon-wrap { background: #6d28d9; }
+
+.pd-why-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.pd-why-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.pd-why-card-desc {
+    font-size: 0.855rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Accordion ───────────────────────────────── */
+.pd-accordion-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+}
+
+.pd-accordion-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: left;
+}
+
+.pd-accordion-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    flex: 1;
+}
+
+.pd-accordion-subtitle {
+    font-size: 0.82rem;
+    color: #777;
+}
+
+.pd-accordion-chevron {
+    width: 18px;
+    height: 18px;
+    color: #555;
+    transition: transform 200ms;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.pd-accordion-item.is-open .pd-accordion-chevron {
+    transform: rotate(180deg);
+}
+
+.pd-accordion-body {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+}
+
+.pd-accordion-item.is-open .pd-accordion-body {
+    display: block;
+}
+
+.pd-accordion-body p {
+    font-size: 0.9rem;
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── Modules table ───────────────────────────── */
+.pd-modules-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.pd-modules-table th {
+    text-align: left;
+    color: #999;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.8rem;
+}
+
+.pd-modules-table td {
+    padding: 0.75rem;
+    color: #333;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.pd-modules-table td:first-child { color: #888; }
+.pd-modules-table td:last-child  { text-align: right; color: #555; }
+
+/* ── FAQ ─────────────────────────────────────── */
+.pd-faq-q {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #e8820c;
+    flex-shrink: 0;
+}
+
+/* ── Timeline ────────────────────────────────── */
+.pd-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.pd-timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e5e7eb;
+}
+
+.pd-timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.pd-timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #e8820c;
+    z-index: 1;
+}
+
+.pd-timeline-week {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #e8820c;
+    margin-bottom: 0.2rem;
+}
+
+.pd-timeline-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.3rem;
+}
+
+.pd-timeline-desc {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.pd-timeline-divider {
+    border: none;
+    border-top: 1px solid #e5e7eb;
+    margin-top: 1.25rem;
+}
+
+/* ── Dissertation pathways ───────────────────── */
+.pd-pathway-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pd-pathway-card {
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #e8820c;
+    border-radius: 6px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.pd-pathway-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.pd-pathway-desc {
+    font-size: 0.855rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Overview highlights ─────────────────────── */
+.pd-highlights {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.pd-highlights-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0 0 1rem;
+}
+
+.pd-highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem 2rem;
+}
+
+.pd-highlights-list li {
+    font-size: 0.875rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pd-highlights-list li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e8820c;
+    flex-shrink: 0;
+}
+
+.pd-overview-text p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.75;
+    margin: 0 0 1rem;
+}
+
+.pd-showmore-btn {
+    background: none;
+    border: none;
+    color: #e8820c;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 1024px) {
+    .pt-layout        { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+    .pt-sidebar       { position: static; }
+    .pt-tabnav-list   { padding: 0 1.5rem; overflow-x: auto; }
+    .pd-why-grid      { grid-template-columns: 1fr; }
+    .pd-pathway-grid  { grid-template-columns: 1fr; }
+    .pd-highlights-list { grid-template-columns: 1fr; }
+}
+
+/* publish — JS controls visibility */
+.pt-slot        { display: none; }
+.pt-slot.is-active { display: block; }
+
+/* author — show all slots so author can drop components */
+.cq-Editable-dom .pt-slot,
+.aem-AuthorLayer-Edit .pt-slot {
+    display: block !important;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    min-height: 60px;
+}
+
+/* sidebar always visible */
+.pt-sidebar { display: block; }

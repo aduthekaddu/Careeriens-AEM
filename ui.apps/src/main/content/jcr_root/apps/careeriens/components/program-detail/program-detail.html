@@ -1,0 +1,323 @@
+<sly
+  data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+  data-sly-call="${clientlib.all @ categories='careeriens.programdetail'}"
+/>
+<sly data-sly-use.model="com.careeriens.core.models.ProgramDetailModel" />
+
+<div class="pd-wrapper" data-sly-test="${model.hasTabs}">
+  <!-- ── Sticky Tab Nav ───────────────────────── -->
+  <nav class="pd-tabnav" aria-label="Program sections">
+    <ul class="pd-tabnav-list">
+      <li class="pd-tabnav-item" data-sly-repeat.tab="${model.tabList}">
+        <button
+          class="pd-tabnav-btn"
+          data-tab-index="${tabList.index}"
+          type="button"
+        >
+          ${tab.tabLabel @ context='text'}
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ── Main layout ──────────────────────────── -->
+  <div class="pd-layout">
+    <!-- ── Tab panels ───────────────────────── -->
+    <div class="pd-panels">
+      <div
+        class="pd-panel"
+        data-sly-repeat.tab="${model.tabList}"
+        data-panel-index="${tabList.index}"
+      >
+        <!-- OVERVIEW -->
+        <sly data-sly-test="${tab.overview}">
+          <h2 class="pd-panel-title" data-sly-test="${tab.title}">
+            ${tab.title @ context='text'}
+          </h2>
+          <div class="pd-overview-body">
+            <div class="pd-overview-text">
+              <p data-sly-test="${tab.para1}">${tab.para1 @ context='text'}</p>
+              <p data-sly-test="${tab.para2}">${tab.para2 @ context='text'}</p>
+              <p data-sly-test="${tab.para3}">${tab.para3 @ context='text'}</p>
+              <div class="pd-showmore-wrap">
+                <button
+                  class="pd-showmore-btn"
+                  type="button"
+                  data-sly-test="${tab.para2 || tab.para3}"
+                >
+                  Show More
+                </button>
+              </div>
+              <div class="pd-highlights" data-sly-test="${tab.hasHighlights}">
+                <h3 class="pd-highlights-title">
+                  ${tab.highlightsTitle @ context='text'}
+                </h3>
+                <ul class="pd-highlights-list">
+                  <li data-sly-repeat.hl="${tab.highlights}">
+                    ${hl @ context='text'}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </sly>
+
+        <!-- WHY CHOOSE -->
+        <sly data-sly-test="${tab.whychoose}">
+          <h2
+            class="pd-panel-title pd-panel-title--why"
+            data-sly-test="${tab.title}"
+          >
+            ${tab.title @ context='text'}
+            <span
+              class="pd-title-highlight"
+              data-sly-test="${tab.titleHighlight}"
+            >
+              ${tab.titleHighlight @ context='text'}
+            </span>
+          </h2>
+          <div class="pd-why-grid" data-sly-test="${tab.hasWhyCards}">
+            <div
+              data-sly-attribute.class="${card.cardClass}"
+              data-sly-repeat.card="${tab.whyCards}"
+            >
+              <div
+                class="pd-why-icon-wrap"
+                data-sly-test="${card.iconConfigured}"
+              >
+                <img
+                  src="${card.iconRef @ context='uri'}"
+                  alt=""
+                  aria-hidden="true"
+                  class="pd-why-icon"
+                />
+              </div>
+              <strong class="pd-why-card-title">
+                ${card.cardTitle @ context='text'}
+              </strong>
+              <p class="pd-why-card-desc">${card.cardDesc @ context='text'}</p>
+            </div>
+          </div>
+        </sly>
+
+        <!-- CURRICULUM -->
+        <sly data-sly-test="${tab.curriculum}">
+          <h2 class="pd-panel-title" data-sly-test="${tab.title}">
+            ${tab.title @ context='text'}
+          </h2>
+          <div class="pd-accordion" data-sly-test="${tab.hasPhases}">
+            <div
+              class="pd-accordion-item"
+              data-sly-repeat.phase="${tab.phases}"
+            >
+              <button class="pd-accordion-btn" type="button">
+                <span class="pd-accordion-title">
+                  ${phase.phaseTitle @ context='text'}
+                </span>
+                <span
+                  class="pd-accordion-subtitle"
+                  data-sly-test="${phase.phaseSubtitle}"
+                >
+                  ${phase.phaseSubtitle @ context='text'}
+                </span>
+                <svg
+                  class="pd-accordion-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="pd-accordion-body">
+                <table
+                  class="pd-modules-table"
+                  data-sly-test="${phase.hasModules}"
+                >
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Module Title</th>
+                      <th>Credits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-sly-repeat.mod="${phase.modules}">
+                      <td>${mod.moduleCode @ context='text'}</td>
+                      <td>${mod.moduleTitle @ context='text'}</td>
+                      <td>${mod.credits @ context='text'}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </sly>
+
+        <!-- STUDY PLAN -->
+        <sly data-sly-test="${tab.studyplan}">
+          <h2 class="pd-panel-title" data-sly-test="${tab.title}">
+            ${tab.title @ context='text'}
+          </h2>
+          <div class="pd-timeline" data-sly-test="${tab.hasPlanItems}">
+            <div
+              class="pd-timeline-item"
+              data-sly-repeat.item="${tab.planItems}"
+            >
+              <div class="pd-timeline-dot" aria-hidden="true"></div>
+              <div class="pd-timeline-content">
+                <span class="pd-timeline-week">
+                  ${item.weekRange @ context='text'}
+                </span>
+                <strong class="pd-timeline-title">
+                  ${item.itemTitle @ context='text'}
+                </strong>
+                <p class="pd-timeline-desc" data-sly-test="${item.itemDesc}">
+                  ${item.itemDesc @ context='text'}
+                </p>
+                <hr class="pd-timeline-divider" />
+              </div>
+            </div>
+          </div>
+        </sly>
+
+        <!-- DISSERTATION -->
+        <sly data-sly-test="${tab.dissertation}">
+          <h2 class="pd-panel-title" data-sly-test="${tab.title}">
+            ${tab.title @ context='text'}
+          </h2>
+          <div class="pd-pathway-grid" data-sly-test="${tab.hasPathways}">
+            <div class="pd-pathway-card" data-sly-repeat.pw="${tab.pathways}">
+              <strong class="pd-pathway-title">
+                ${pw.pathTitle @ context='text'}
+              </strong>
+              <p class="pd-pathway-desc">${pw.pathDesc @ context='text'}</p>
+            </div>
+          </div>
+        </sly>
+
+        <!-- FAQ -->
+        <sly data-sly-test="${tab.faq}">
+          <h2 class="pd-panel-title" data-sly-test="${tab.title}">
+            ${tab.title @ context='text'}
+          </h2>
+          <div class="pd-accordion" data-sly-test="${tab.hasFaqs}">
+            <div
+              class="pd-accordion-item pd-faq-item"
+              data-sly-repeat.faq="${tab.faqs}"
+            >
+              <button class="pd-accordion-btn" type="button">
+                <span class="pd-faq-q">Q.</span>
+                <span class="pd-accordion-title">
+                  ${faq.question @ context='text'}
+                </span>
+                <svg
+                  class="pd-accordion-chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="pd-accordion-body">
+                <p>${faq.answer @ context='text'}</p>
+              </div>
+            </div>
+          </div>
+        </sly>
+      </div>
+    </div>
+
+    <!-- ── Sidebar ───────────────────────────── -->
+    <aside class="pd-sidebar">
+      <div class="pd-sidebar-card">
+        <span class="pd-sidebar-duration-label">
+          ${model.sidebarDurationLabel @ context='text'}
+        </span>
+        <div
+          class="pd-sidebar-duration"
+          data-sly-test="${model.sidebarDuration}"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <strong>${model.sidebarDuration @ context='text'}</strong>
+        </div>
+        <div class="pd-sidebar-infos">
+          <div class="pd-sidebar-info" data-sly-test="${model.sidebarInfo1}">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path
+                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              />
+            </svg>
+            ${model.sidebarInfo1 @ context='text'}
+          </div>
+          <div class="pd-sidebar-info" data-sly-test="${model.sidebarInfo2}">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            ${model.sidebarInfo2 @ context='text'}
+          </div>
+        </div>
+        <a
+          class="pd-sidebar-cta"
+          href="${model.sidebarCtaLink @ context='uri'}"
+        >
+          ${model.sidebarCtaText @ context='text'}
+        </a>
+      </div>
+
+      <div class="pd-admission-card" data-sly-test="${model.admissionTitle}">
+        <strong class="pd-admission-title">
+          ${model.admissionTitle @ context='text'}
+        </strong>
+        <p class="pd-admission-desc" data-sly-test="${model.admissionDesc}">
+          ${model.admissionDesc @ context='text'}
+        </p>
+        <a
+          class="pd-admission-link"
+          href="${model.admissionLinkHref @ context='uri'}"
+          data-sly-test="${model.admissionLinkText}"
+        >
+          ${model.admissionLinkText @ context='text'}
+        </a>
+      </div>
+    </aside>
+  </div>
+</div>

@@ -574,3 +574,39 @@
 .pd-accordion-item.is-open .pd-accordion-chevron {
   transform: rotate(180deg);
 }
+
+.pd-accordion-item summary {
+  list-style: none; /* removes the default triangle */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+}
+
+.pd-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* add your own chevron via CSS */
+.pd-accordion-item summary::after {
+  content: "";
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23374151' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.pd-accordion-item[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.pd-accordion-body {
+  padding: 0 1.5rem 1.5rem;
+}

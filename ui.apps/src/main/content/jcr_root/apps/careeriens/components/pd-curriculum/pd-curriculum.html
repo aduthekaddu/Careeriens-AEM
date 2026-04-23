@@ -6,8 +6,11 @@
   </h2>
 
   <div class="pd-accordion" data-sly-test="${model.hasPhases}">
-    <div class="pd-accordion-item" data-sly-repeat.phase="${model.phaseList}">
-      <button class="pd-accordion-btn" type="button">
+    <details
+      class="pd-accordion-item"
+      data-sly-repeat.phase="${model.phaseList}"
+    >
+      <summary class="pd-accordion-btn">
         <span class="pd-accordion-title">
           ${phase.phaseTitle @ context='text'}
         </span>
@@ -17,19 +20,7 @@
         >
           ${phase.phaseSubtitle @ context='text'}
         </span>
-        <svg
-          class="pd-accordion-chevron"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <polyline points="6 9 12 15 18 9" />
-        </svg>
-      </button>
+      </summary>
 
       <div class="pd-accordion-body">
         <table class="pd-modules-table" data-sly-test="${phase.hasModules}">
@@ -51,6 +42,6 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </details>
   </div>
 </div>

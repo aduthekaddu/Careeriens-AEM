@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Why Choose"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+
+            <tabLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Tab Label"
+                fieldDescription="Shown in the tab nav — e.g. Why Choose Us"
+                name="./tabLabel"
+                value="Why Choose Us"/>
+
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Section Title"
+                fieldDescription="Main heading for this panel"
+                name="./title"/>
+
+            <titleHighlight
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Title Highlighted Word"
+                fieldDescription="This word appears in accent orange after the title"
+                name="./titleHighlight"/>
+
+            <cards
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                fieldLabel="Feature Cards"
+                fieldDescription="Each card appears in the 2-column grid"
+                composite="{Boolean}true">
+                <field
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    granite:class="foundation-layout-panel"
+                    name="./cards">
+                    <items jcr:primaryType="nt:unstructured">
+
+                        <cardTitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Card Title"
+                            name="./cardTitle"
+                            required="{Boolean}true"/>
+
+                        <cardDesc
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                            fieldLabel="Card Description"
+                            name="./cardDesc"/>
+
+                        <iconRef
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Icon (DAM path)"
+                            fieldDescription="Optional — leave blank for no icon"
+                            name="./iconRef"
+                            rootPath="/content/dam"/>
+
+                        <accentColor
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                            fieldLabel="Icon Background Color"
+                            name="./accentColor">
+                            <items jcr:primaryType="nt:unstructured">
+                                <blue
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Blue (Default)"
+                                    value="blue"
+                                    selected="{Boolean}true"/>
+                                <orange
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Orange"
+                                    value="orange"/>
+                                <green
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Green"
+                                    value="green"/>
+                                <purple
+                                    jcr:primaryType="nt:unstructured"
+                                    text="Purple"
+                                    value="purple"/>
+                            </items>
+                        </accentColor>
+
+                    </items>
+                </field>
+            </cards>
+
+        </items>
+    </content>
+</jcr:root>

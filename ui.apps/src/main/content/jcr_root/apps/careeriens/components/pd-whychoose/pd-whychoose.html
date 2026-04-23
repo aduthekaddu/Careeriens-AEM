@@ -1,0 +1,32 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdWhyChooseModel" />
+
+<div class="pd-panel" data-tab-label="${model.tabLabel @ context='attribute'}">
+  <h2 class="pd-panel-title pd-panel-title--why" data-sly-test="${model.title}">
+    ${model.title @ context='text'}
+    <span class="pd-title-highlight" data-sly-test="${model.titleHighlight}">
+      ${model.titleHighlight @ context='text'}
+    </span>
+  </h2>
+
+  <div class="pd-why-grid" data-sly-test="${model.hasCards}">
+    <div
+      data-sly-repeat.card="${model.cardList}"
+      data-sly-attribute.class="${card.cardClass}"
+    >
+      <div class="pd-why-icon-wrap" data-sly-test="${card.hasIcon}">
+        <img
+          src="${card.iconRef @ context='uri'}"
+          alt=""
+          aria-hidden="true"
+          class="pd-why-icon"
+        />
+      </div>
+
+      <strong class="pd-why-card-title">
+        ${card.cardTitle @ context='text'}
+      </strong>
+
+      <p class="pd-why-card-desc">${card.cardDesc @ context='text'}</p>
+    </div>
+  </div>
+</div>

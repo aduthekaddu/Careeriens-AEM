@@ -1,0 +1,27 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdStudyPlanModel" />
+
+<div class="pd-panel" data-tab-label="${model.tabLabel @ context='attribute'}">
+  <h2 class="pd-panel-title" data-sly-test="${model.title}">
+    ${model.title @ context='text'}
+  </h2>
+
+  <div class="pd-timeline" data-sly-test="${model.hasItems}">
+    <div class="pd-timeline-item" data-sly-repeat.item="${model.itemList}">
+      <div class="pd-timeline-dot"></div>
+
+      <span class="pd-timeline-week" data-sly-test="${item.hasWeekLabel}">
+        ${item.weekLabel @ context='text'}
+      </span>
+
+      <span class="pd-timeline-title">
+        ${item.itemTitle @ context='text'}
+      </span>
+
+      <p class="pd-timeline-desc" data-sly-test="${item.hasDesc}">
+        ${item.itemDesc @ context='text'}
+      </p>
+
+      <hr class="pd-timeline-divider" />
+    </div>
+  </div>
+</div>

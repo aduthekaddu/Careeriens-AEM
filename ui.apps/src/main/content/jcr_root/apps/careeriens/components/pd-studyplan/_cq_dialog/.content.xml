@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Study Plan"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+
+            <tabLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Tab Label"
+                fieldDescription="Shown in the tab nav — e.g. Study Plan"
+                name="./tabLabel"
+                value="Study Plan"/>
+
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Section Title"
+                name="./title"/>
+
+            <items
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                fieldLabel="Timeline Items"
+                fieldDescription="Each item is one step on the timeline"
+                composite="{Boolean}true">
+                <field
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    granite:class="foundation-layout-panel"
+                    name="./items">
+                    <items jcr:primaryType="nt:unstructured">
+
+                        <weekLabel
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Week / Period Label"
+                            fieldDescription="e.g. Week 1 or Month 2 — shown in orange above the title"
+                            name="./weekLabel"/>
+
+                        <itemTitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Title"
+                            fieldDescription="e.g. Introduction to React"
+                            name="./itemTitle"
+                            required="{Boolean}true"/>
+
+                        <itemDesc
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                            fieldLabel="Description"
+                            fieldDescription="Optional — brief summary of what happens in this period"
+                            name="./itemDesc"/>
+
+                    </items>
+                </field>
+            </items>
+
+        </items>
+    </content>
+</jcr:root>

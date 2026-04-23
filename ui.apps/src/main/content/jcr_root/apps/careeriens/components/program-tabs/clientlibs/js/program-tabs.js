@@ -6,11 +6,10 @@
     );
   }
 
-  function init() {
-    document.querySelectorAll(".pt-wrapper").forEach(function (wrapper) {
-      // don't run tab logic in author mode
-      if (isAuthorMode()) return;
+  function initTabs() {
+    if (isAuthorMode()) return;
 
+    document.querySelectorAll(".pt-wrapper").forEach(function (wrapper) {
       var slots = wrapper.querySelectorAll(".pt-slot");
       var navList = wrapper.querySelector(".pt-tabnav-list");
       var buttons = [];
@@ -20,7 +19,6 @@
         if (!panel) return;
 
         var label = panel.getAttribute("data-tab-label") || "Tab";
-
         var li = document.createElement("li");
         var btn = document.createElement("button");
         btn.className = "pt-tabnav-btn";
@@ -45,17 +43,7 @@
         buttons[0].slot.classList.add("is-active");
       }
 
-      // accordion
-      document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".pd-accordion-btn").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            var item = btn.closest(".pd-accordion-item");
-            item.classList.toggle("is-open");
-          });
-        });
-      });
-
-      // show more/less
+      // show more/less — only in publish
       wrapper.querySelectorAll(".pd-showmore-btn").forEach(function (btn) {
         btn.addEventListener("click", function () {
           var wrap = btn.closest(".pd-overview-text");
@@ -66,9 +54,23 @@
     });
   }
 
+  // ── Accordion — runs in BOTH author and publish ──
+  function initAccordions() {
+    document.querySelectorAll(".pd-accordion-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        btn.closest(".pd-accordion-item").classList.toggle("is-open");
+      });
+    });
+  }
+
+  // ── Boot ─────────────────────────────────────────
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", function () {
+      initTabs();
+      initAccordions();
+    });
   } else {
-    init();
+    initTabs();
+    initAccordions();
   }
 })();

@@ -46,9 +46,12 @@
       }
 
       // accordion
-      wrapper.querySelectorAll(".pd-accordion-btn").forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          btn.closest(".pd-accordion-item").classList.toggle("is-open");
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".pd-accordion-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var item = btn.closest(".pd-accordion-item");
+            item.classList.toggle("is-open");
+          });
         });
       });
 

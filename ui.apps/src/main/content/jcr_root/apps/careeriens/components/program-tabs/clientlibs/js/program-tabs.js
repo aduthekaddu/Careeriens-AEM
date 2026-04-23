@@ -1,5 +1,4 @@
 (function () {
-  alert("clientlibs loaded ");
   function isAuthorMode() {
     return (
       document.documentElement.classList.contains("aem-AuthorLayer-Edit") ||

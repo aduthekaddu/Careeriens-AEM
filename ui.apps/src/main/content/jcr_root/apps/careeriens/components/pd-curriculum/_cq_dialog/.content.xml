@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Curriculum"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+
+            <tabLabel
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Tab Label"
+                fieldDescription="Shown in the tab nav — e.g. Curriculum"
+                name="./tabLabel"
+                value="Curriculum"/>
+
+            <title
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldLabel="Section Title"
+                name="./title"/>
+
+            <phases
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                fieldLabel="Phases / Years"
+                fieldDescription="Each phase has a title, subtitle, and a list of modules"
+                composite="{Boolean}true">
+                <field
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    granite:class="foundation-layout-panel"
+                    name="./phases">
+                    <items jcr:primaryType="nt:unstructured">
+
+                        <phaseTitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Phase Title"
+                            fieldDescription="e.g. Year 1 or Phase 1"
+                            name="./phaseTitle"
+                            required="{Boolean}true"/>
+
+                        <phaseSubtitle
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Phase Subtitle"
+                            fieldDescription="e.g. Foundations — shown dimmed next to the title"
+                            name="./phaseSubtitle"/>
+
+                        <modules
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            fieldLabel="Modules"
+                            fieldDescription="Modules listed inside this phase's accordion"
+                            composite="{Boolean}true">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                granite:class="foundation-layout-panel"
+                                name="./modules">
+                                <items jcr:primaryType="nt:unstructured">
+
+                                    <moduleCode
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Module Code"
+                                        fieldDescription="e.g. CS101 — optional"
+                                        name="./moduleCode"/>
+
+                                    <moduleTitle
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Module Title"
+                                        name="./moduleTitle"
+                                        required="{Boolean}true"/>
+
+                                    <credits
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Credits"
+                                        fieldDescription="e.g. 15 — optional"
+                                        name="./credits"/>
+
+                                </items>
+                            </field>
+                        </modules>
+
+                    </items>
+                </field>
+            </phases>
+
+        </items>
+    </content>
+</jcr:root>

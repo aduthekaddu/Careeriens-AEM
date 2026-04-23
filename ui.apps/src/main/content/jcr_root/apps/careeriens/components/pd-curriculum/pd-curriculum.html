@@ -42,15 +42,11 @@
           </thead>
           <tbody>
             <tr data-sly-repeat.mod="${phase.modules}">
-              <td data-sly-test="${mod.hasCode}">
-                ${mod.moduleCode @ context='text'}
+              <td class="pd-mod-code">${mod.moduleCode @ context='text'}</td>
+              <td class="pd-mod-title">
+                <strong>${mod.moduleTitle @ context='text'}</strong>
               </td>
-              <td data-sly-test.skip="${!mod.hasCode}">
-                ${mod.moduleTitle @ context='text'}
-              </td>
-              <td data-sly-test="${mod.hasCredits}">
-                ${mod.credits @ context='text'}
-              </td>
+              <td class="pd-mod-credits">${mod.credits @ context='text'}</td>
             </tr>
           </tbody>
         </table>

@@ -610,3 +610,82 @@
 .pd-accordion-body {
   padding: 0 1.5rem 1.5rem;
 }
+
+/* ── Study Plan accordion overrides ─────────── */
+.pd-panel-title--studyplan {
+  border-left: 4px solid #e8820c;
+  padding-left: 0.75rem;
+}
+
+.pd-accordion-btn--studyplan {
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+}
+
+.pd-sp-btn-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.pd-sp-phase-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a3d2b; /* dark green */
+}
+
+.pd-accordion-item.is-open .pd-sp-phase-title {
+  color: #1a5c38;
+}
+
+.pd-accordion-chevron--studyplan {
+  color: #1a3d2b;
+  margin-top: 2px;
+}
+
+.pd-sp-phase-subtitle {
+  font-size: 0.855rem;
+  color: #666;
+  font-weight: 400;
+}
+
+/* Topics list */
+.pd-sp-topics {
+  padding: 0.5rem 0 0.25rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.pd-sp-topics-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #555;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.75rem;
+}
+
+.pd-sp-topics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem;
+}
+
+.pd-sp-topics-list li {
+  font-size: 0.875rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pd-sp-topics-list li::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #e8820c;
+  flex-shrink: 0;
+}

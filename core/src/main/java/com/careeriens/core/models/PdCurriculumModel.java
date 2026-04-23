@@ -37,14 +37,12 @@ public class PdCurriculumModel {
           pp.get("phaseTitle", ""),
           pp.get("phaseSubtitle", ""));
 
-      Resource modulesRes = phaseRes.getChild("modules");
-      if (modulesRes != null) {
-        for (Resource modRes : modulesRes.getChildren()) {
-          ValueMap mp = modRes.getValueMap();
-          phase.getModules().add(new Module(
-              mp.get("moduleCode", ""),
-              mp.get("moduleTitle", ""),
-              mp.get("credits", "")));
+      Resource topicsRes = phaseRes.getChild("topics");
+      if (topicsRes != null) {
+        for (Resource t : topicsRes.getChildren()) {
+          String val = t.getValueMap().get("topicText", "");
+          if (!val.isEmpty())
+            phase.getTopics().add(val);
         }
       }
       phaseList.add(phase);
@@ -67,11 +65,9 @@ public class PdCurriculumModel {
     return !phaseList.isEmpty();
   }
 
-  // ── Inner classes ──────────────────────────────────
-
   public static class Phase {
     private final String phaseTitle, phaseSubtitle;
-    private final List<Module> modules = new ArrayList<>();
+    private final List<String> topics = new ArrayList<>();
 
     public Phase(String t, String s) {
       this.phaseTitle = t;
@@ -86,46 +82,16 @@ public class PdCurriculumModel {
       return phaseSubtitle;
     }
 
-    public List<Module> getModules() {
-      return modules;
-    }
-
-    public boolean isHasModules() {
-      return !modules.isEmpty();
+    public List<String> getTopics() {
+      return topics;
     }
 
     public boolean isHasSubtitle() {
       return phaseSubtitle != null && !phaseSubtitle.isEmpty();
     }
-  }
 
-  public static class Module {
-    private final String moduleCode, moduleTitle, credits;
-
-    public Module(String c, String t, String cr) {
-      this.moduleCode = c;
-      this.moduleTitle = t;
-      this.credits = cr;
-    }
-
-    public String getModuleCode() {
-      return moduleCode;
-    }
-
-    public String getModuleTitle() {
-      return moduleTitle;
-    }
-
-    public String getCredits() {
-      return credits;
-    }
-
-    public boolean isHasCode() {
-      return moduleCode != null && !moduleCode.isEmpty();
-    }
-
-    public boolean isHasCredits() {
-      return credits != null && !credits.isEmpty();
+    public boolean isHasTopics() {
+      return !topics.isEmpty();
     }
   }
 }

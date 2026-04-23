@@ -7,8 +7,7 @@
     jcr:primaryType="nt:unstructured"
     jcr:title="Study Plan"
     sling:resourceType="cq/gui/components/authoring/dialog">
-    <content
-        jcr:primaryType="nt:unstructured"
+    <content jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
 
@@ -16,7 +15,6 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                 fieldLabel="Tab Label"
-                fieldDescription="Shown in the tab nav — e.g. Study Plan"
                 name="./tabLabel"
                 value="Study Plan"/>
 
@@ -26,44 +24,59 @@
                 fieldLabel="Section Title"
                 name="./title"/>
 
-            <items
+            <phases
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                fieldLabel="Timeline Items"
-                fieldDescription="Each item is one step on the timeline"
+                fieldLabel="Phases"
                 composite="{Boolean}true">
                 <field
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="granite/ui/components/coral/foundation/container"
                     granite:class="foundation-layout-panel"
-                    name="./items">
+                    name="./phases">
                     <items jcr:primaryType="nt:unstructured">
 
-                        <weekLabel
+                        <phaseTitle
                             jcr:primaryType="nt:unstructured"
                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Week / Period Label"
-                            fieldDescription="e.g. Week 1 or Month 2 — shown in orange above the title"
-                            name="./weekLabel"/>
-
-                        <itemTitle
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="Title"
-                            fieldDescription="e.g. Introduction to React"
-                            name="./itemTitle"
+                            fieldLabel="Phase Title"
+                            fieldDescription="e.g. Phase 1: Foundations &amp; Frontend"
+                            name="./phaseTitle"
                             required="{Boolean}true"/>
 
-                        <itemDesc
+                        <phaseSubtitle
                             jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                            fieldLabel="Description"
-                            fieldDescription="Optional — brief summary of what happens in this period"
-                            name="./itemDesc"/>
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Subtitle"
+                            fieldDescription="e.g. Mastering the building blocks of the web"
+                            name="./phaseSubtitle"/>
+
+                        <topics
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                            fieldLabel="Topics Covered"
+                            fieldDescription="Each entry is one bullet in the two-column grid"
+                            composite="{Boolean}true">
+                            <field
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                granite:class="foundation-layout-panel"
+                                name="./topics">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <topic
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        fieldLabel="Topic"
+                                        fieldDescription="e.g. HTML5 Semantic Structure"
+                                        name="./topic"
+                                        required="{Boolean}true"/>
+                                </items>
+                            </field>
+                        </topics>
 
                     </items>
                 </field>
-            </items>
+            </phases>
 
         </items>
     </content>

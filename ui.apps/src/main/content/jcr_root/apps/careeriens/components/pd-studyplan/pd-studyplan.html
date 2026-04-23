@@ -1,27 +1,57 @@
 <sly data-sly-use.model="com.careeriens.core.models.PdStudyPlanModel" />
 
 <div class="pd-panel" data-tab-label="${model.tabLabel @ context='attribute'}">
-  <h2 class="pd-panel-title" data-sly-test="${model.title}">
+  <h2
+    class="pd-panel-title pd-panel-title--studyplan"
+    data-sly-test="${model.title}"
+  >
     ${model.title @ context='text'}
   </h2>
 
-  <div class="pd-timeline" data-sly-test="${model.hasItems}">
-    <div class="pd-timeline-item" data-sly-repeat.item="${model.itemList}">
-      <div class="pd-timeline-dot"></div>
+  <div
+    class="pd-accordion pd-accordion--studyplan"
+    data-sly-test="${model.hasPhases}"
+  >
+    <div class="pd-accordion-item" data-sly-repeat.phase="${model.phaseList}">
+      <button
+        class="pd-accordion-btn pd-accordion-btn--studyplan"
+        type="button"
+      >
+        <div class="pd-sp-btn-text">
+          <span class="pd-sp-phase-title">
+            ${phase.phaseTitle @ context='text'}
+          </span>
+          <span
+            class="pd-sp-phase-subtitle"
+            data-sly-test="${phase.hasSubtitle}"
+          >
+            ${phase.phaseSubtitle @ context='text'}
+          </span>
+        </div>
+        <svg
+          class="pd-accordion-chevron pd-accordion-chevron--studyplan"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </button>
 
-      <span class="pd-timeline-week" data-sly-test="${item.hasWeekLabel}">
-        ${item.weekLabel @ context='text'}
-      </span>
-
-      <span class="pd-timeline-title">
-        ${item.itemTitle @ context='text'}
-      </span>
-
-      <p class="pd-timeline-desc" data-sly-test="${item.hasDesc}">
-        ${item.itemDesc @ context='text'}
-      </p>
-
-      <hr class="pd-timeline-divider" />
+      <div class="pd-accordion-body">
+        <div class="pd-sp-topics" data-sly-test="${phase.hasTopics}">
+          <p class="pd-sp-topics-label">TOPICS COVERED:</p>
+          <ul class="pd-sp-topics-list">
+            <li data-sly-repeat.topic="${phase.topics}">
+              ${topic @ context='text'}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

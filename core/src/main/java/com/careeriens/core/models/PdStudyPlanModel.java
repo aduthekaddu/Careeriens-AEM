@@ -22,20 +22,28 @@ public class PdStudyPlanModel {
   private String title;
 
   @ChildResource
-  private Resource items;
+  private Resource phases;
 
-  private final List<TimelineItem> itemList = new ArrayList<>();
+  private final List<Phase> phaseList = new ArrayList<>();
 
   @PostConstruct
   protected void init() {
-    if (items == null)
+    if (phases == null)
       return;
-    for (Resource item : items.getChildren()) {
-      ValueMap p = item.getValueMap();
-      itemList.add(new TimelineItem(
-          p.get("weekLabel", ""),
-          p.get("itemTitle", ""),
-          p.get("itemDesc", "")));
+    for (Resource phaseRes : phases.getChildren()) {
+      ValueMap pp = phaseRes.getValueMap();
+      Phase phase = new Phase(
+          pp.get("phaseTitle", ""),
+          pp.get("phaseSubtitle", ""));
+      Resource topicsRes = phaseRes.getChild("topics");
+      if (topicsRes != null) {
+        for (Resource t : topicsRes.getChildren()) {
+          String topic = t.getValueMap().get("topic", "");
+          if (!topic.isEmpty())
+            phase.getTopics().add(topic);
+        }
+      }
+      phaseList.add(phase);
     }
   }
 
@@ -47,41 +55,41 @@ public class PdStudyPlanModel {
     return title;
   }
 
-  public List<TimelineItem> getItemList() {
-    return itemList;
+  public List<Phase> getPhaseList() {
+    return phaseList;
   }
 
-  public boolean isHasItems() {
-    return !itemList.isEmpty();
+  public boolean isHasPhases() {
+    return !phaseList.isEmpty();
   }
 
-  public static class TimelineItem {
-    private final String weekLabel, itemTitle, itemDesc;
+  public static class Phase {
+    private final String phaseTitle, phaseSubtitle;
+    private final List<String> topics = new ArrayList<>();
 
-    public TimelineItem(String w, String t, String d) {
-      this.weekLabel = w;
-      this.itemTitle = t;
-      this.itemDesc = d;
+    public Phase(String t, String s) {
+      this.phaseTitle = t;
+      this.phaseSubtitle = s;
     }
 
-    public String getWeekLabel() {
-      return weekLabel;
+    public String getPhaseTitle() {
+      return phaseTitle;
     }
 
-    public String getItemTitle() {
-      return itemTitle;
+    public String getPhaseSubtitle() {
+      return phaseSubtitle;
     }
 
-    public String getItemDesc() {
-      return itemDesc;
+    public List<String> getTopics() {
+      return topics;
     }
 
-    public boolean isHasWeekLabel() {
-      return weekLabel != null && !weekLabel.isEmpty();
+    public boolean isHasSubtitle() {
+      return phaseSubtitle != null && !phaseSubtitle.isEmpty();
     }
 
-    public boolean isHasDesc() {
-      return itemDesc != null && !itemDesc.isEmpty();
+    public boolean isHasTopics() {
+      return !topics.isEmpty();
     }
   }
 }

@@ -1,47 +1,55 @@
-<sly data-sly-use.model="com.careeriens.core.models.PdCurriculumModel" />
+<sly data-sly-use.model="com.careeriens.core.models.PdCurriculumModel"/>
 
 <div class="pd-panel" data-tab-label="${model.tabLabel @ context='attribute'}">
-  <h2 class="pd-panel-title" data-sly-test="${model.title}">
-    ${model.title @ context='text'}
-  </h2>
-
-  <div class="pd-accordion" data-sly-test="${model.hasPhases}">
-    <details
-      class="pd-accordion-item"
-      data-sly-repeat.phase="${model.phaseList}"
-    >
-      <summary class="pd-accordion-btn">
-        <span class="pd-accordion-title">
-          ${phase.phaseTitle @ context='text'}
-        </span>
-        <span
-          class="pd-accordion-subtitle"
-          data-sly-test="${phase.hasSubtitle}"
-        >
-          ${phase.phaseSubtitle @ context='text'}
-        </span>
-      </summary>
-
-      <div class="pd-accordion-body">
-        <table class="pd-modules-table" data-sly-test="${phase.hasModules}">
-          <thead>
-            <tr>
-              <th>Code</th>
-              <th>Module</th>
-              <th>Credits</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-sly-repeat.mod="${phase.modules}">
-              <td class="pd-mod-code">${mod.moduleCode @ context='text'}</td>
-              <td class="pd-mod-title">
-                <strong>${mod.moduleTitle @ context='text'}</strong>
-              </td>
-              <td class="pd-mod-credits">${mod.credits @ context='text'}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </details>
+  <div>x
+    <h2 class="pd-panel-title" data-sly-test="${model.title}">
+        ${model.title @ context='text'}
+    </h2>
   </div>
+
+    <div class="pd-accordion" data-sly-test="${model.hasPhases}">
+
+        <details class="pd-accordion-item"
+                 data-sly-repeat.phase="${model.phaseList}">
+
+            <summary class="pd-accordion-btn">
+                <span class="pd-accordion-title">
+                    ${phase.phaseTitle @ context='text'}
+                </span>
+                <span class="pd-accordion-subtitle"
+                      data-sly-test="${phase.hasSubtitle}">
+                    ${phase.phaseSubtitle @ context='text'}
+                </span>
+            </summary>
+
+            <div class="pd-accordion-body">
+                <table class="pd-modules-table"
+                       data-sly-test="${phase.hasModules}">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Module</th>
+                            <th>Credits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-sly-repeat.mod="${phase.modules}">
+                            <td class="pd-mod-code">
+                                ${mod.moduleCode @ context='text'}
+                            </td>
+                            <td class="pd-mod-title">
+                                <strong>${mod.moduleTitle @ context='text'}</strong>
+                            </td>
+                            <td class="pd-mod-credits">
+                                ${mod.credits @ context='text'}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </details>
+
+    </div>
+
 </div>

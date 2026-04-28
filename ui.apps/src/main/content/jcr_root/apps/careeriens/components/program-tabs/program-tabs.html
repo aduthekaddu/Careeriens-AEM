@@ -2,7 +2,7 @@
   data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
   data-sly-call="${clientlib.all @ categories='careeriens.programtabs'}"
 />
-<sly data-sly-use.wcmmode="com.day.cq.wcm.api.WCMMode" />
+<sly data-sly-use.slots="com.careeriens.core.models.SlotChecker"/>
 
 <div class="pt-wrapper">
   <nav class="pt-tabnav" aria-label="Program sections">
@@ -11,42 +11,47 @@
 
   <div class="pt-layout">
     <div class="pt-panels">
-      <div class="pt-slot" data-slot="1">
-        <sly
-          data-sly-resource="${'slot1' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot1 || wcmmode.edit}"
+           data-slot="1">
+        <sly data-sly-resource="${'slot1' @ resourceType='foundation/components/parsys'}"/>
       </div>
-      <div class="pt-slot" data-slot="2">
-        <sly
-          data-sly-resource="${'slot2' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot2 || wcmmode.edit}"
+           data-slot="2">
+        <sly data-sly-resource="${'slot2' @ resourceType='foundation/components/parsys'}"/>
       </div>
-      <div class="pt-slot" data-slot="3">
-        <sly
-          data-sly-resource="${'slot3' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot3 || wcmmode.edit}"
+           data-slot="3">
+        <sly data-sly-resource="${'slot3' @ resourceType='foundation/components/parsys'}"/>
       </div>
-      <div class="pt-slot" data-slot="4">
-        <sly
-          data-sly-resource="${'slot4' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot4 || wcmmode.edit}"
+           data-slot="4">
+        <sly data-sly-resource="${'slot4' @ resourceType='foundation/components/parsys'}"/>
       </div>
-      <div class="pt-slot" data-slot="5">
-        <sly
-          data-sly-resource="${'slot5' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot5 || wcmmode.edit}"
+           data-slot="5">
+        <sly data-sly-resource="${'slot5' @ resourceType='foundation/components/parsys'}"/>
       </div>
-      <div class="pt-slot" data-slot="6">
-        <sly
-          data-sly-resource="${'slot6' @ resourceType='foundation/components/parsys'}"
-        />
+
+      <div class="pt-slot"
+           data-sly-test="${slots.slot6 || wcmmode.edit}"
+           data-slot="6">
+        <sly data-sly-resource="${'slot6' @ resourceType='foundation/components/parsys'}"/>
       </div>
+
     </div>
 
     <aside class="pt-sidebar">
-      <sly
-        data-sly-resource="${'sidebar' @ resourceType='foundation/components/parsys'}"
-      />
+      <sly data-sly-resource="${'sidebar' @ resourceType='foundation/components/parsys'}"/>
     </aside>
   </div>
 </div>

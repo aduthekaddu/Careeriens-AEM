@@ -1,0 +1,40 @@
+<sly data-sly-use.model="com.careeriens.core.models.WeatherModel" />
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.js @ categories='careeriens.weather'}" />
+
+<div
+  class="weather-widget"
+  data-location="${model.location @ context='attribute'}"
+  data-city="${model.cityName @ context='attribute'}"
+  data-apikey="${model.apiKey @ context='attribute'}"
+  data-refresh="${model.refreshInterval @ context='attribute'}"
+>
+  <div class="ww-header">
+    <span class="ww-city">${model.cityName @ context='text'}</span>
+    <span class="ww-updated">Updating...</span>
+  </div>
+
+  <div class="ww-body">
+    <div class="ww-temp-wrap">
+      <span class="ww-temp">--</span>
+      <span class="ww-unit">°C</span>
+    </div>
+    <div class="ww-icon">⛅</div>
+  </div>
+
+  <div class="ww-details">
+    <div class="ww-detail">
+      <span class="ww-label">Humidity</span>
+      <span class="ww-humidity">--%</span>
+    </div>
+    <div class="ww-detail">
+      <span class="ww-label">Wind</span>
+      <span class="ww-wind">-- km/h</span>
+    </div>
+    <div class="ww-detail">
+      <span class="ww-label">Condition</span>
+      <span class="ww-condition">--</span>
+    </div>
+  </div>
+</div>

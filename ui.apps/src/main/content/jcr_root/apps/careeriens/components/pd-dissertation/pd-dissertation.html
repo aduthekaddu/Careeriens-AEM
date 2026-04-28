@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdDissertationModel"/>
+
+<div class="pd-panel pd-panel--dark"
+     data-tab-label="${model.tabLabel @ context='attribute'}">
+
+    <h2 class="pd-panel-title pd-panel-title--dark"
+        data-sly-test="${model.title}">
+        ${model.title @ context='text'}
+    </h2>
+
+    <div class="pd-pathway-grid" data-sly-test="${model.hasPathways}">
+
+        <div class="pd-pathway-card pd-pathway-card--dark"
+             data-sly-repeat.pathway="${model.pathwayList}">
+
+            <strong class="pd-pathway-title pd-pathway-title--dark">
+                ${pathway.pathwayTitle @ context='text'}
+            </strong>
+
+            <p class="pd-pathway-desc pd-pathway-desc--dark">
+                ${pathway.pathwayDesc @ context='text'}
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

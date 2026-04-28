@@ -1,0 +1,27 @@
+<sly data-sly-use.model="com.careeriens.core.models.PdFaqModel"/>
+
+<div class="pd-panel pd-panel--dark pd-panel--faq"
+     data-tab-label="${model.tabLabel @ context='attribute'}">
+
+    <h2 class="pd-panel-title pd-panel-title--dark"
+        data-sly-test="${model.title}">
+        ${model.title @ context='text'}
+    </h2>
+
+    <div class="pd-faq-list" data-sly-test="${model.hasFaqs}">
+
+        <div class="pd-faq-item" data-sly-repeat.faq="${model.faqList}">
+            <div class="pd-faq-header">
+                <span class="pd-faq-q">Q.</span>
+                <strong class="pd-faq-question">
+                    ${faq.question @ context='text'}
+                </strong>
+            </div>
+            <p class="pd-faq-answer">
+                ${faq.answer @ context='text'}
+            </p>
+        </div>
+
+    </div>
+
+</div>
